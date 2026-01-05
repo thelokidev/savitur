@@ -1,0 +1,25 @@
+# Ignore Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+
+# Ignore Node.js artifacts
+node_modules/
+/dist/
+/.next/
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Environment files
+.env
+.env.*
+
+# OS files
+Thumbs.db
+.DS_Store
