@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "savitur-backend"
+version = "1.0.0"
+description = "Vedic Astrology API Backend"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi==0.104.1",
+    "uvicorn[standard]==0.24.0",
+    "pydantic==2.5.0",
+    "pydantic-settings==2.1.0",
+    "python-multipart==0.0.6",
+    "python-dateutil==2.9.0.post0",
+    "pyswisseph==2.10.3.2",
+    "numpy",
+    "geopy==2.4.1",
+    "pytz==2024.1",
+]
