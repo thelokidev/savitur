@@ -11,8 +11,8 @@
         }
     ],
     "functions": {
-        "api/index.py": {
-            "runtime": "vercel-python@3.10"
+        "api/*.py": {
+            "runtime": "@vercel/python"
         }
     }
 }
