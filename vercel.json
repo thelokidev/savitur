@@ -1,7 +1,5 @@
 {
     "version": 2,
-    "buildCommand": "cd web-app/frontend && npm install && npm run build",
-    "outputDirectory": "web-app/frontend/.next",
     "rewrites": [
         {
             "source": "/api/v1/:path*",
