@@ -1,8 +1,17 @@
 import axios from 'axios';
 
-// In production, NEXT_PUBLIC_API_URL must be set to the Render backend URL
-// In development, it defaults to localhost:8000
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// Detect if we're in production (Vercel sets NODE_ENV to production)
+const isProduction = process.env.NODE_ENV === 'production';
+
+// In production, NEXT_PUBLIC_API_URL MUST be set
+// In development, fall back to localhost
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ||
+  (isProduction ? '' : 'http://localhost:8000');
+
+// Log warning if API URL is not configured in production
+if (isProduction && !process.env.NEXT_PUBLIC_API_URL) {
+  console.error('ERROR: NEXT_PUBLIC_API_URL environment variable is not set!');
+}
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -11,6 +20,7 @@ export const apiClient = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
 
 // Response interceptor for error handling
 apiClient.interceptors.response.use(
