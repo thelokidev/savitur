@@ -1,0 +1,9 @@
+{
+    "name": "savitur-monorepo",
+    "private": true,
+    "scripts": {
+        "dev": "npm --prefix web-app/frontend run dev",
+        "build": "npm --prefix web-app/frontend run build",
+        "start": "npm --prefix web-app/frontend run start"
+    }
+}
