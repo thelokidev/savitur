@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: savitur-api
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r web-app/backend/requirements.txt
+    startCommand: cd web-app/backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONPATH
+        value: /opt/render/project/src/PyJHora/src
+      - key: ENVIRONMENT
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: https://savitur-git-master-loki98s-projects.vercel.app,https://savitur-ns7vbkn6f-loki98s-projects.vercel.app
