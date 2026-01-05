@@ -1,18 +1,11 @@
 {
     "version": 2,
+    "buildCommand": "cd web-app/frontend && npm install && npm run build",
+    "outputDirectory": "web-app/frontend/.next",
     "rewrites": [
         {
-            "source": "/api/(.*)",
-            "destination": "api/index.py"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "web-app/frontend/$1"
+            "source": "/api/v1/:path*",
+            "destination": "/api/index.py"
         }
-    ],
-    "functions": {
-        "api/*.py": {
-            "runtime": "@vercel/python"
-        }
-    }
+    ]
 }

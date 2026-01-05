@@ -5,9 +5,12 @@ import os
 backend_path = os.path.join(os.path.dirname(__file__), "..", "web-app", "backend")
 sys.path.append(backend_path)
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
+
+# Import the main app
 from main import app
 
-# This is the entry point for Vercel
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# Wrap the FastAPI app with Mangum for serverless
+handler = Mangum(app, lifespan="off")
