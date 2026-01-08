@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+
+# Node/Frontend (not needed for backend)
+web-app/frontend/
+node_modules/
+.next/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.cursor/
+.idea/
+*.swp
+*.swo
+
+# Tests
+**/test_*.py
+**/*_test.py
+.pytest_cache/
+
+# Docs
+*.md
+!README.md
+
+# Misc
+*.log
+*.tmp
