@@ -13,7 +13,8 @@ from app.api.v1.endpoints import (
     jyotichart,
     cities,
     transit,
-    ai_export
+    ai_export,
+    consolidated
 )
 
 api_router = APIRouter()
@@ -86,4 +87,11 @@ api_router.include_router(
     ai_export.router,
     prefix="/ai-export",
     tags=["AI Export"]
+)
+
+# Consolidated - Single endpoint for all chart data (FAST!)
+api_router.include_router(
+    consolidated.router,
+    prefix="",
+    tags=["Consolidated"]
 )

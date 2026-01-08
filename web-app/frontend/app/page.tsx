@@ -42,6 +42,13 @@ export default function Home() {
     console.log('DEBUG: Current Ayanamsa:', birthData.ayanamsa);
   }, [birthData]);
 
+  // Prefetch: Wake up backend on page load to prevent cold start delays
+  useEffect(() => {
+    // Ping health endpoint to wake up the Render backend
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    fetch(`${API_URL}/health`).catch(() => { });
+  }, []);
+
   // Auto-calculate on mount if birth data exists and has been calculated before
   useEffect(() => {
     if (hasCalculated && birthData.date && birthData.time && birthData.place.name) {
