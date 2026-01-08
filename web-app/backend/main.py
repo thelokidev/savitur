@@ -17,15 +17,20 @@ app = FastAPI(
 )
 
 # CORS configuration - environment-based
+# Allow all Vercel preview/production deployments
 ALLOWED_ORIGINS = os.getenv(
     "ALLOWED_ORIGINS",
     "http://localhost:3000,http://localhost:3001,http://127.0.0.1:3000"
 ).split(",")
 
-# CORS middleware
+# Regex pattern to match all Vercel deployments for this project
+ALLOWED_ORIGIN_REGEX = r"https://savitur.*\.vercel\.app"
+
+# CORS middleware - use allow_origin_regex to match all Vercel deployments
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS if os.getenv("ENVIRONMENT") == "production" else ["*"],
+    allow_origin_regex=ALLOWED_ORIGIN_REGEX if os.getenv("ENVIRONMENT") == "production" else None,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
