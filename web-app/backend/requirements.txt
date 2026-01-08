@@ -9,3 +9,12 @@ numpy
 geopy==2.4.1
 pytz==2024.1
 
+# PyJHora dependencies
+geocoder==1.38.1
+timezonefinder==6.5.8
+requests>=2.32.0
+pandas>=2.2.0
+Pillow>=11.0.0
+attr==0.3.2
+
+
